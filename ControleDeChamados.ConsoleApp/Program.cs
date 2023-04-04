@@ -223,7 +223,7 @@ namespace ControleDeChamados.ConsoleApp
             Console.Write("\nDigite o ID do equipamento que deseja editar: ");
             int idEditar = int.Parse(Console.ReadLine());
 
-            while (idEditar > idEquipamento.Count || idEditar < 0)
+            while (idEquipamento.Contains(idEditar) == false)
             {
                 Console.WriteLine("Equipamento não existe!");
                 Console.WriteLine();
@@ -292,7 +292,7 @@ namespace ControleDeChamados.ConsoleApp
             Console.Write("\nDigite o ID do equipamento que deseja remover: ");
             int removerEquipamento = int.Parse(Console.ReadLine());
 
-            while (removerEquipamento > idEquipamento.Count || removerEquipamento < 0)
+            while (idEquipamento.Contains(removerEquipamento) == false)
             {
                 Console.WriteLine("Equipamento não existe!");
                 Console.WriteLine("\nDigite o ID que deseja excluir: ");
@@ -369,7 +369,7 @@ namespace ControleDeChamados.ConsoleApp
             Console.Write("\nDigite o ID do chamado que deseja editar: ");
             int idEditarChamado = int.Parse(Console.ReadLine());
 
-            while (idEditarChamado > idChamado.Count || idEditarChamado < 0)
+            while (idChamado.Contains(idEditarChamado) == false) 
             {
                 Console.WriteLine("Chamado não existe!");
                 Console.WriteLine();
@@ -430,7 +430,7 @@ namespace ControleDeChamados.ConsoleApp
             Console.Write("\nDigite o ID do equipamento que deseja remover: ");
             int removerChamado = int.Parse(Console.ReadLine());
 
-            while (removerChamado > idChamado.Count || removerChamado < 0)
+            while (idChamado.Contains(removerChamado) == false) 
             {
                 Console.WriteLine("Chamado não existe!");
                 Console.WriteLine("\nDigite o ID que deseja excluir: ");
@@ -455,8 +455,8 @@ namespace ControleDeChamados.ConsoleApp
             Console.WriteLine("Chamados registrados:");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("|ID |Titulo             |Equipamento         |Data de Abertura         |");
-            Console.WriteLine("------------------------------------------------------------------------");
+            Console.WriteLine("|ID |Titulo             |Equipamento         |Data de Abertura         |Dias em Aberto");
+            Console.WriteLine("--------------------------------------------------------------------------------------");
             Console.ResetColor();
 
             for (int i = 0; i < idChamado.Count; i++)
@@ -474,6 +474,7 @@ namespace ControleDeChamados.ConsoleApp
             Console.ResetColor();
             Console.ReadLine();
         }
+
     }
 }
 
